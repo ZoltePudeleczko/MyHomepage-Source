@@ -21,9 +21,11 @@ class DesktopNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 20,
-        horizontal: 40
+      padding: const EdgeInsets.only(
+        left: 100,
+        right: 80,
+        top: 20,
+        bottom: 20,
       ),
       child: Container(
         constraints: BoxConstraints(),
@@ -52,19 +54,37 @@ class DesktopNavbar extends StatelessWidget {
               ),
               Row(
                 children: <Widget>[
-                  Text(
-                    "Home",
-                    style: TextStyle(
-                      color: Colors.white),
+                  MaterialButton(
+                    color: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15.0)
+                      )
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      "Home",
+                      style: TextStyle(
+                          color: Colors.white),
+                    ),
                   ),
                   SizedBox(
                     width: 30,
                   ),
-                  Text(
-                    "Portfolio",
-                    style: TextStyle(
-                        color: Colors.white),
-                  )
+                  MaterialButton(
+                    color: Colors.indigoAccent,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                            Radius.circular(15.0)
+                        )
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      "Portfolio",
+                      style: TextStyle(
+                          color: Colors.white),
+                    )
+                  ),
                 ]
               )
           ]
@@ -77,7 +97,77 @@ class DesktopNavbar extends StatelessWidget {
 class MobileNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    throw UnimplementedError();
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 20,
+      ),
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                      "Szymon Samuel ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontSize: 30
+                      )
+                  ),
+                  Text(
+                      "Zborowski",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 30
+                      )
+                  ),
+                ]
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    MaterialButton(
+                      color: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(15.0)
+                          )
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        "Home",
+                        style: TextStyle(
+                            color: Colors.white),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 30,
+                    ),
+                    MaterialButton(
+                        color: Colors.indigoAccent,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                                Radius.circular(15.0)
+                            )
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "Portfolio",
+                          style: TextStyle(
+                              color: Colors.white),
+                        )
+                    ),
+                  ]
+              ),
+            )
+          ]
+        )
+      ),
+    );
   }
-
 }
