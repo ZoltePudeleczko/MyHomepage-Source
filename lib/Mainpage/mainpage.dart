@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 class Mainpage extends StatelessWidget {
   @override
@@ -81,7 +82,9 @@ class DesktopMainpage extends StatelessWidget {
                             Radius.circular(15.0)
                         )
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      html.window.open('https://github.com/ZoltePudeleczko', 'github');
+                    },
                     child: Row(
                         children: <Widget>[
                           Icon(Icons.accessibility_sharp),
@@ -101,7 +104,9 @@ class DesktopMainpage extends StatelessWidget {
                             Radius.circular(15.0)
                         )
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      html.window.open('https://www.linkedin.com/in/szymon-zborowski/', 'linkedin');
+                    },
                     child: Row(
                         children: <Widget>[
                           Text(
@@ -187,7 +192,9 @@ class MobileMainpage extends StatelessWidget {
                                 Radius.circular(15.0)
                             )
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          html.window.open('https://github.com/ZoltePudeleczko', 'github');
+                        },
                         child: Row(
                             children: <Widget>[
                               Icon(Icons.accessibility_sharp),
@@ -210,7 +217,9 @@ class MobileMainpage extends StatelessWidget {
                                 Radius.circular(15.0)
                             )
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          html.window.open('https://www.linkedin.com/in/szymon-zborowski/', 'linkedin');
+                        },
                         child: Row(
                             children: <Widget>[
                               Text(

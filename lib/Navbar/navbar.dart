@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 class Navbar extends StatelessWidget {
   @override
@@ -59,25 +60,29 @@ class DesktopNavbar extends StatelessWidget {
                         Radius.circular(15.0)
                       )
                     ),
-                    onPressed: () {},
-                    child: Text(
+                    onPressed: () {
+                      html.window.open('mailto:szzborowski@gmail.com', 'mail');
+                      },
+                      child: Text(
                       "Contact me",
                       style: TextStyle(
-                          color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  MaterialButton(
-                    color: Colors.indigoAccent,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                            Radius.circular(15.0)
-                        )
-                    ),
-                    onPressed: () {},
-                    child: Text(
+                      color: Colors.white),
+                      ),
+                      ),
+                      SizedBox(
+                      width: 30,
+                      ),
+                      MaterialButton(
+                      color: Colors.indigoAccent,
+                      shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                      Radius.circular(15.0)
+                      )
+                      ),
+                      onPressed: () {
+                        html.window.open('https://github.com/ZoltePudeleczko?tab=repositories', 'portfolio');
+                      },
+                      child: Text(
                       "Portfolio",
                       style: TextStyle(
                           color: Colors.white),
@@ -136,8 +141,9 @@ class MobileNavbar extends StatelessWidget {
                               Radius.circular(15.0)
                           )
                       ),
-                      onPressed: () {},
-                      child: Text(
+                      onPressed: () {
+                        html.window.open('mailto:szzborowski@gmail.com', 'mail');
+                      },                      child: Text(
                         "Contact me",
                         style: TextStyle(
                             color: Colors.white),
@@ -153,7 +159,9 @@ class MobileNavbar extends StatelessWidget {
                                 Radius.circular(15.0)
                             )
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          html.window.open('https://github.com/ZoltePudeleczko?tab=repositories', 'portfolio');
+                        },
                         child: Text(
                           "Portfolio",
                           style: TextStyle(
