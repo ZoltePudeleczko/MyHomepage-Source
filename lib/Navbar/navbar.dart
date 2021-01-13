@@ -7,8 +7,6 @@ class Navbar extends StatelessWidget {
       builder: (context, constraints) {
         if (constraints.maxWidth > 1200) { // Big Desktop
           return DesktopNavbar();
-        } else if (constraints.maxWidth > 800) { // Small Desktop
-          return DesktopNavbar();
         } else { // Mobile
           return MobileNavbar();
         }
@@ -28,7 +26,6 @@ class DesktopNavbar extends StatelessWidget {
         bottom: 20,
       ),
       child: Container(
-        constraints: BoxConstraints(),
         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -37,6 +34,7 @@ class DesktopNavbar extends StatelessWidget {
                   Text(
                       "Szymon Samuel ",
                       style: TextStyle(
+
                           fontWeight: FontWeight.normal,
                           color: Colors.white,
                           fontSize: 30
@@ -63,7 +61,7 @@ class DesktopNavbar extends StatelessWidget {
                     ),
                     onPressed: () {},
                     child: Text(
-                      "Home",
+                      "Contact me",
                       style: TextStyle(
                           color: Colors.white),
                     ),
@@ -140,7 +138,7 @@ class MobileNavbar extends StatelessWidget {
                       ),
                       onPressed: () {},
                       child: Text(
-                        "Home",
+                        "Contact me",
                         style: TextStyle(
                             color: Colors.white),
                       ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zborowskihomepage/Portfolio/portfolio.dart';
+import 'package:zborowskihomepage/Mainpage/mainpage.dart';
 import 'package:zborowskihomepage/Navbar/navbar.dart';
 
 void main() {
@@ -33,7 +35,9 @@ class MyHomePage extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            Navbar()
+            Navbar(),
+            Mainpage(),
+            Portfolio(),
           ],
         )
       )
