@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
-import 'package:zborowskihomepage/Assets/custom_icons.dart' as CustomIcons;
+import 'package:flutter_icons/flutter_icons.dart';
 
 class Mainpage extends StatelessWidget {
   @override
@@ -186,11 +186,12 @@ class LinkedInButton extends StatelessWidget {
           html.window.open('https://www.linkedin.com/in/szymon-zborowski/', 'linkedin');
         },
         child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 "Find me on LinkedIn",
               ),
-              Icon(CustomIcons.linkedin),
+              Icon(FontAwesome5Brands.linkedin),
             ]
         ),
       ),
@@ -214,8 +215,9 @@ class GithubButton extends StatelessWidget {
           html.window.open('https://github.com/ZoltePudeleczko', 'github');
         },
         child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Icon(CustomIcons.github),
+              Icon(FontAwesome5Brands.github),
               Text(
                   "Check out my GitHub"
               ),
