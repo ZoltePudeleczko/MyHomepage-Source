@@ -22,7 +22,7 @@ class DesktopMainpage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: 60.0,
-        horizontal: 100.0,
+        horizontal: 150.0,
       ),
       child: Container(
         decoration: BoxDecoration(

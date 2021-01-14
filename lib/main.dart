@@ -24,23 +24,30 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [Colors.lightBlueAccent, Colors.lightBlue]
-          )
-        ),
-        child: Column(
-          children: <Widget>[
-            Navbar(),
-            Mainpage(),
-            Portfolio(),
-          ],
-        )
-      )
+    return LayoutBuilder(
+        builder: (context, constraints) {
+          return Scaffold(
+              body: Container(
+                  height: constraints.maxHeight,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [Colors.lightBlueAccent, Colors.lightBlue]
+                      )
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: <Widget>[
+                        Navbar(),
+                        Mainpage(),
+                        Portfolio(),
+                      ],
+                    ),
+                  )
+              )
+          );
+        }
     );
   }
 }
