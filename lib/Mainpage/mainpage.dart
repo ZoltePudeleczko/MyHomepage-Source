@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
+import 'package:zborowskihomepage/Assets/custom_icons.dart' as CustomIcons;
 
 class Mainpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (context, constraints) {
-          if (constraints.maxWidth > 1200) { // Big Desktop
+          if (constraints.maxWidth > 1400) { // Big Desktop
             return DesktopMainpage();
           } else { // Mobile
             return MobileMainpage();
@@ -61,60 +62,31 @@ class DesktopMainpage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(30.0),
-              child: Column(
+              child: Row(
                 children: <Widget>[
-                  Text(
-                    "Want to get to know me?",
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      color: Colors.white,
-                      fontSize: 30,
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      "Want to get to know me?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        color: Colors.white,
+                        fontSize: 30,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                   SizedBox(
                     height: 15,
                   ),
-                  MaterialButton(
-                    color: Colors.tealAccent,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                            Radius.circular(15.0)
-                        )
-                    ),
-                    onPressed: () {
-                      html.window.open('https://github.com/ZoltePudeleczko', 'github');
-                    },
-                    child: Row(
-                        children: <Widget>[
-                          Icon(Icons.accessibility_sharp),
-                          Text(
-                              "Check out my GitHub"
-                          ),
-                        ]
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  MaterialButton(
-                    color: Colors.tealAccent,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                            Radius.circular(15.0)
-                        )
-                    ),
-                    onPressed: () {
-                      html.window.open('https://www.linkedin.com/in/szymon-zborowski/', 'linkedin');
-                    },
-                    child: Row(
-                        children: <Widget>[
-                          Text(
-                              "Find me on LinkedIn"
-                          ),
-                          Icon(Icons.eighteen_mp),
-                        ]
-                    ),
+                  Column(
+                    children: <Widget>[
+                      GithubButton(),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      LinkedInButton(),
+                    ]
                   ),
                 ],
               ),
@@ -183,58 +155,72 @@ class MobileMainpage extends StatelessWidget {
                     SizedBox(
                       height: 15,
                     ),
-                    SizedBox(
-                      width: 180,
-                      child: MaterialButton(
-                        color: Colors.tealAccent,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(15.0)
-                            )
-                        ),
-                        onPressed: () {
-                          html.window.open('https://github.com/ZoltePudeleczko', 'github');
-                        },
-                        child: Row(
-                            children: <Widget>[
-                              Icon(Icons.accessibility_sharp),
-                              Text(
-                                  "Check out my GitHub"
-                              ),
-                            ]
-                        ),
-                      ),
-                    ),
+                    GithubButton(),
                     SizedBox(
                       height: 10,
                     ),
-                    SizedBox(
-                      width: 180,
-                      child: MaterialButton(
-                        color: Colors.tealAccent,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(15.0)
-                            )
-                        ),
-                        onPressed: () {
-                          html.window.open('https://www.linkedin.com/in/szymon-zborowski/', 'linkedin');
-                        },
-                        child: Row(
-                            children: <Widget>[
-                              Text(
-                                  "Find me on LinkedIn",
-                              ),
-                              Icon(Icons.eighteen_mp),
-                            ]
-                        ),
-                      ),
-                    ),
+                    LinkedInButton(),
                   ],
                 ),
               )
             ],
           )
+      ),
+    );
+  }
+}
+
+class LinkedInButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 180,
+      child: MaterialButton(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+                Radius.circular(15.0)
+            )
+        ),
+        onPressed: () {
+          html.window.open('https://www.linkedin.com/in/szymon-zborowski/', 'linkedin');
+        },
+        child: Row(
+            children: <Widget>[
+              Text(
+                "Find me on LinkedIn",
+              ),
+              Icon(CustomIcons.linkedin),
+            ]
+        ),
+      ),
+    );
+  }
+}
+
+class GithubButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 180,
+      child: MaterialButton(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+                Radius.circular(15.0)
+            )
+        ),
+        onPressed: () {
+          html.window.open('https://github.com/ZoltePudeleczko', 'github');
+        },
+        child: Row(
+            children: <Widget>[
+              Icon(CustomIcons.github),
+              Text(
+                  "Check out my GitHub"
+              ),
+            ]
+        ),
       ),
     );
   }

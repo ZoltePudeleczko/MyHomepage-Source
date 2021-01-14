@@ -81,3 +81,6 @@ fonts:
       - asset: fonts/Lato/Lato-Bold.ttf
       - asset: fonts/Lato/Lato-Light.ttf
       - asset: fonts/Lato/Lato-Regular.ttf
+  - family: CustomIcons
+    fonts:
+      - asset: fonts/Icons/CustomIcons.ttf
