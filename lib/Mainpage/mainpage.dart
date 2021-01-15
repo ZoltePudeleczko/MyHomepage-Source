@@ -7,7 +7,7 @@ class Mainpage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (context, constraints) {
-          if (constraints.maxWidth > 1400) { // Big Desktop
+          if (constraints.maxWidth > 1200) { // Big Desktop
             return DesktopMainpage();
           } else { // Mobile
             return MobileMainpage();
@@ -21,78 +21,80 @@ class DesktopMainpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 60.0,
-        horizontal: 150.0,
+      padding: const EdgeInsets.only(
+        top: 60.0,
       ),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.indigoAccent,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        "Hi there :)\nI'm Szymon Zborowski and I code",
+      child: SizedBox(
+        width: 1200,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.indigoAccent,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 6,
+                offset: Offset(20, 20),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          "Hi there :)\nI'm Szymon Zborowski and I code",
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.white,
+                            fontSize: 30,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                    ]
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Text(
+                        "Want to get to know me?",
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           color: Colors.white,
                           fontSize: 30,
                         ),
-                        textAlign: TextAlign.left,
+                        textAlign: TextAlign.center,
                       ),
-                    ],
-                  ),
-                  ]
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Text(
-                      "Want to get to know me?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        color: Colors.white,
-                        fontSize: 30,
-                      ),
-                      textAlign: TextAlign.center,
                     ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      GithubButton(),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      LinkedInButton(),
-                    ]
-                  ),
-                ],
-              ),
-            )
-          ],
-        )
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Column(
+                      children: <Widget>[
+                        GithubButton(),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        LinkedInButton(),
+                      ]
+                    ),
+                  ],
+                ),
+              )
+            ],
+          )
+        ),
       ),
     );
   }
@@ -102,8 +104,8 @@ class MobileMainpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 60.0,
+      padding: const EdgeInsets.only(
+        top: 60.0,
       ),
       child: Container(
           decoration: BoxDecoration(
@@ -112,8 +114,8 @@ class MobileMainpage extends StatelessWidget {
               BoxShadow(
                 color: Colors.black.withOpacity(0.5),
                 spreadRadius: 5,
-                blurRadius: 7,
-                offset: Offset(0, 3), // changes position of shadow
+                blurRadius: 6,
+                offset: Offset(20, 20),
               ),
             ],
           ),
