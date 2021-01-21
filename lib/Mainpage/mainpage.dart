@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class Mainpage extends StatelessWidget {
   @override
@@ -39,27 +40,10 @@ class DesktopMainpage extends StatelessWidget {
             ],
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          "Hi there :)\nI'm Szymon Zborowski and I code",
-                          style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            color: Colors.white,
-                            fontSize: 30,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ],
-                    ),
-                    ]
-                ),
+                child: HiColumn(),
               ),
               Padding(
                 padding: const EdgeInsets.all(30.0),
@@ -106,6 +90,8 @@ class MobileMainpage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         top: 60.0,
+        left: 50.0,
+        right: 50.0,
       ),
       child: Container(
           decoration: BoxDecoration(
@@ -123,23 +109,7 @@ class MobileMainpage extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Column(
-                    children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          Text(
-                            "Hi there :)\nI'm Szymon Zborowski and I code",
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              fontSize: 30,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ]
-                ),
+                child: HiColumn(),
               ),
               Padding(
                 padding: const EdgeInsets.all(30.0),
@@ -226,6 +196,61 @@ class GithubButton extends StatelessWidget {
             ]
         ),
       ),
+    );
+  }
+}
+
+class HiColumn extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Row(
+            children: <Widget>[
+              Text(
+                "Hi there :)",
+                style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white,
+                  fontSize: 30,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ]
+        ),
+        Row(
+            children: <Widget>[
+              Text(
+                "I'm Szymon Zborowski and I ",
+                style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white,
+                  fontSize: 30,
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                width: 140.0,
+                child: TypewriterAnimatedTextKit(
+                  pause: Duration(
+                      milliseconds: 2500
+                  ),
+                  text: [
+                    "code",
+                    "develop",
+                    "design",
+                    "create",
+                  ],
+                  textStyle: TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+              ),
+            ]
+        ),
+      ],
     );
   }
 }
