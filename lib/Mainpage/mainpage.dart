@@ -43,7 +43,7 @@ class DesktopMainpage extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: HiColumn(),
+                child: HiColumnDesktop(),
               ),
               Padding(
                 padding: const EdgeInsets.all(30.0),
@@ -109,7 +109,7 @@ class MobileMainpage extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: HiColumn(),
+                child: HiColumnMobile(),
               ),
               Padding(
                 padding: const EdgeInsets.all(30.0),
@@ -200,7 +200,7 @@ class GithubButton extends StatelessWidget {
   }
 }
 
-class HiColumn extends StatelessWidget {
+class HiColumnDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -231,9 +231,9 @@ class HiColumn extends StatelessWidget {
               ),
               SizedBox(
                 width: 140.0,
-                child: TypewriterAnimatedTextKit(
+                child: FadeAnimatedTextKit(
                   pause: Duration(
-                      milliseconds: 2500
+                      milliseconds: 1000
                   ),
                   text: [
                     "code",
@@ -252,5 +252,33 @@ class HiColumn extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class HiColumnMobile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+            Text(
+              "Hi there :)",
+              style: TextStyle(
+                fontWeight: FontWeight.normal,
+                color: Colors.white,
+                fontSize: 30,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              "I'm Szymon Zborowski and I code",
+              style: TextStyle(
+                fontWeight: FontWeight.normal,
+                color: Colors.white,
+                fontSize: 30,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ]
+      );
   }
 }

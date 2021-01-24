@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class Navbar extends StatelessWidget {
   @override
@@ -30,26 +31,7 @@ class DesktopNavbar extends StatelessWidget {
         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Text(
-                      "Szymon Samuel ",
-                      style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.white,
-                          fontSize: 30
-                      )
-                  ),
-                  Text(
-                      "Zborowski",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 30
-                      )
-                  ),
-                ]
-              ),
+              ZborowskiText(),
               Row(
                 children: <Widget>[
                   MaterialButton(
@@ -107,27 +89,7 @@ class MobileNavbar extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                      "Szymon Samuel ",
-                      style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.white,
-                          fontSize: 30
-                      )
-                  ),
-                  Text(
-                      "Zborowski",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 30
-                      )
-                  ),
-                ]
-            ),
+            ZborowskiText(),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Row(
@@ -173,6 +135,44 @@ class MobileNavbar extends StatelessWidget {
           ]
         )
       ),
+    );
+  }
+}
+
+class ZborowskiText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Text(
+            "Szymon Samuel ",
+            style: TextStyle(
+                fontWeight: FontWeight.normal,
+                color: Colors.white,
+                fontSize: 30
+            )
+        ),
+        SizedBox(
+        width: 250.0,
+        child: TypewriterAnimatedTextKit(
+          repeatForever: false,
+          totalRepeatCount: 1,
+          speed: Duration(
+            milliseconds: 500,
+          ),
+          text: [
+            "Zborowski"
+          ],
+          textStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: "Lato",
+              color: Colors.white,
+              fontSize: 30
+          ),
+          textAlign: TextAlign.start,
+        ),
+      ),
+    ]
     );
   }
 }
