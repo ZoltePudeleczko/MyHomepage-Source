@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zborowskihomepage/Funstaf/wave_clipper.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 class Portfolio extends StatelessWidget {
   @override
@@ -7,18 +8,30 @@ class Portfolio extends StatelessWidget {
     return LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth > 1200) { // Big Desktop
-            return Padding(
-              padding: const EdgeInsets.only(
-                  top: 200,
-              ),
-              child: DesktopPortfolio(),
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 75,
+                    bottom: 50,
+                  ),
+                  child: ScrollPageButton(),
+                ),
+                DesktopPortfolio(),
+              ]
             );
           } else { // Mobile
-            return Padding(
-              padding: const EdgeInsets.only(
-                  top: 50.0,
-              ),
-              child: MobilePortfolio(),
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 75,
+                    bottom: 50,
+                  ),
+                  child: ScrollPageButton(),
+                ),
+                MobilePortfolio(),
+              ]
             );
           }
         }
@@ -29,26 +42,64 @@ class Portfolio extends StatelessWidget {
 class DesktopPortfolio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ClipPath(  //upper clippath with less height
-          clipper:WaveClipper(), //set our custom wave clipper.
-          child:Container(
-              color: Colors.white,
-              height: 800,
-              alignment: Alignment.center,
-          ),
-        );
+    return ClipPath(
+      clipper: WaveClipperTwo(reverse: true),
+      child: Container(
+        color: Colors.white,
+        height: 800,
+        alignment: Alignment.center,
+        child: Center(
+            child: Text(
+                "Portfolio"
+            )
+        ),
+      ),
+    );
   }
 }
 
 class MobilePortfolio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ClipPath(  //upper clippath with less height
-      clipper:WaveClipper(), //set our custom wave clipper.
-      child:Container(
-          color: Colors.white,
-          height:800,
-          alignment: Alignment.center,
+    return ClipPath(
+      clipper: WaveClipperTwo(reverse: true),
+      child: Container(
+        color: Colors.white,
+        height: 800,
+        alignment: Alignment.center,
+        child: Center(
+            child: Text(
+                "Portfolio"
+            )
+        ),
+      ),
+    );
+  }
+}
+
+class ScrollPageButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 140,
+      child: MaterialButton(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+                Radius.circular(15.0)
+            )
+        ),
+        onPressed: () {
+        },
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                  " See my work "
+              ),
+              Icon(FontAwesome5.hand_point_down),
+            ]
+        ),
       ),
     );
   }

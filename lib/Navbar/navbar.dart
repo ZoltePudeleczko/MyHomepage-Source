@@ -104,7 +104,8 @@ class MobileNavbar extends StatelessWidget {
                       ),
                       onPressed: () {
                         html.window.open('mailto:szzborowski@gmail.com', 'mail');
-                      },                      child: Text(
+                      },
+                      child: Text(
                         "Contact me",
                         style: TextStyle(
                             color: Colors.white),

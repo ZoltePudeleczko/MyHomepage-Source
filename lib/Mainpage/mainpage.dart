@@ -232,6 +232,7 @@ class HiColumnDesktop extends StatelessWidget {
               SizedBox(
                 width: 140.0,
                 child: FadeAnimatedTextKit(
+                  repeatForever: true,
                   pause: Duration(
                       milliseconds: 1000
                   ),
