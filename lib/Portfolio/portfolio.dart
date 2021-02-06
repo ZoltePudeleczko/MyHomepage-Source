@@ -3,6 +3,9 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 class Portfolio extends StatelessWidget {
+  final Function() parentScrollScreen;
+  Portfolio({Key key, @required this.parentScrollScreen}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -15,7 +18,9 @@ class Portfolio extends StatelessWidget {
                     top: 75,
                     bottom: 50,
                   ),
-                  child: ScrollPageButton(),
+                  child: ScrollPageButton(
+                      parentScrollScreen: parentScrollScreen
+                  ),
                 ),
                 DesktopPortfolio(),
               ]
@@ -28,7 +33,9 @@ class Portfolio extends StatelessWidget {
                     top: 75,
                     bottom: 50,
                   ),
-                  child: ScrollPageButton(),
+                  child: ScrollPageButton(
+                      parentScrollScreen: parentScrollScreen
+                  ),
                 ),
                 MobilePortfolio(),
               ]
@@ -78,6 +85,10 @@ class MobilePortfolio extends StatelessWidget {
 }
 
 class ScrollPageButton extends StatelessWidget {
+  final Function() parentScrollScreen;
+  ScrollPageButton({Key key, @required this.parentScrollScreen}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -90,6 +101,7 @@ class ScrollPageButton extends StatelessWidget {
             )
         ),
         onPressed: () {
+          parentScrollScreen();
         },
         child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

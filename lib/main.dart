@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:zborowskihomepage/Portfolio/portfolio.dart';
 import 'package:zborowskihomepage/Mainpage/mainpage.dart';
 import 'package:zborowskihomepage/Navbar/navbar.dart';
@@ -20,7 +21,25 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  ScrollController _scrollController = new ScrollController();
+
+  void scrollToPortfolio() {
+    SchedulerBinding.instance.addPostFrameCallback((_) =>
+        _scrollController.animateTo(
+            _scrollController.position.maxScrollExtent,
+            duration: Duration(
+              seconds: 2,
+            ),
+            curve: Curves.linear,
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -36,17 +55,19 @@ class MyHomePage extends StatelessWidget {
                       )
                   ),
                   child: SingleChildScrollView(
+                    controller: _scrollController,
                     child: Column(
                       children: <Widget>[
                         Navbar(),
                         Mainpage(),
-                        Portfolio(),
+                        Portfolio(
+                            parentScrollScreen: scrollToPortfolio
+                        ),
                       ],
                     ),
                   )
               )
           );
         }
-    );
-  }
+    );  }
 }
