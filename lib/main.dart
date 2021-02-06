@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
         _scrollController.animateTo(
             _scrollController.position.maxScrollExtent,
             duration: Duration(
-              seconds: 2,
+              milliseconds: 500,
             ),
             curve: Curves.linear,
         ));

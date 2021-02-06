@@ -57,7 +57,7 @@ class DesktopPortfolio extends StatelessWidget {
         alignment: Alignment.center,
         child: Center(
             child: Text(
-                "Portfolio"
+                "W.I.P."
             )
         ),
       ),
@@ -76,7 +76,7 @@ class MobilePortfolio extends StatelessWidget {
         alignment: Alignment.center,
         child: Center(
             child: Text(
-                "Portfolio"
+                "W.I.P."
             )
         ),
       ),

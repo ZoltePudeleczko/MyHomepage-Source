@@ -143,37 +143,40 @@ class MobileNavbar extends StatelessWidget {
 class ZborowskiText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Text(
-            "Szymon Samuel ",
-            style: TextStyle(
-                fontWeight: FontWeight.normal,
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        children: <Widget>[
+          Text(
+              "Szymon Samuel ",
+              style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white,
+                  fontSize: 30
+              )
+          ),
+          SizedBox(
+          width: 250.0,
+          child: TypewriterAnimatedTextKit(
+            repeatForever: false,
+            totalRepeatCount: 1,
+            speed: Duration(
+              milliseconds: 300,
+            ),
+            text: [
+              "Zborowski"
+            ],
+            textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: "Lato",
                 color: Colors.white,
                 fontSize: 30
-            )
-        ),
-        SizedBox(
-        width: 250.0,
-        child: TypewriterAnimatedTextKit(
-          repeatForever: false,
-          totalRepeatCount: 1,
-          speed: Duration(
-            milliseconds: 500,
+            ),
+            textAlign: TextAlign.start,
           ),
-          text: [
-            "Zborowski"
-          ],
-          textStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontFamily: "Lato",
-              color: Colors.white,
-              fontSize: 30
-          ),
-          textAlign: TextAlign.start,
         ),
+      ]
       ),
-    ]
     );
   }
 }
