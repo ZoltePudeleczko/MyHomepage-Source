@@ -3,14 +3,21 @@ import 'dart:html' as html;
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 class Navbar extends StatelessWidget {
+  final Function() parentScrollScreen;
+  Navbar({Key key, @required this.parentScrollScreen}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth > 1200) { // Big Desktop
-          return DesktopNavbar();
+          return DesktopNavbar(
+            parentScrollScreen: parentScrollScreen,
+          );
         } else { // Mobile
-          return MobileNavbar();
+          return MobileNavbar(
+            parentScrollScreen: parentScrollScreen,
+          );
         }
       }
     );
@@ -18,6 +25,9 @@ class Navbar extends StatelessWidget {
 }
 
 class DesktopNavbar extends StatelessWidget {
+  final Function() parentScrollScreen;
+  DesktopNavbar({Key key, @required this.parentScrollScreen}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,40 +44,12 @@ class DesktopNavbar extends StatelessWidget {
               ZborowskiText(),
               Row(
                 children: <Widget>[
-                  MaterialButton(
-                    color: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(15.0)
-                      )
-                    ),
-                    onPressed: () {
-                      html.window.open('mailto:szzborowski@gmail.com', 'mail');
-                      },
-                      child: Text(
-                      "Contact me",
-                      style: TextStyle(
-                      color: Colors.white),
-                      ),
-                      ),
-                      SizedBox(
-                      width: 30,
-                      ),
-                      MaterialButton(
-                      color: Colors.indigoAccent,
-                      shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                      Radius.circular(15.0)
-                      )
-                      ),
-                      onPressed: () {
-                        html.window.open('https://github.com/ZoltePudeleczko?tab=repositories', 'portfolio');
-                      },
-                      child: Text(
-                      "Portfolio",
-                      style: TextStyle(
-                          color: Colors.white),
-                    )
+                  EmailButton(),
+                  SizedBox(
+                  width: 30,
+                  ),
+                  PortfolioButton(
+                    parentScrollScreen: parentScrollScreen,
                   ),
                 ]
               )
@@ -79,6 +61,9 @@ class DesktopNavbar extends StatelessWidget {
 }
 
 class MobileNavbar extends StatelessWidget {
+  final Function() parentScrollScreen;
+  MobileNavbar({Key key, @required this.parentScrollScreen}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -95,40 +80,12 @@ class MobileNavbar extends StatelessWidget {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    MaterialButton(
-                      color: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                              Radius.circular(15.0)
-                          )
-                      ),
-                      onPressed: () {
-                        html.window.open('mailto:szzborowski@gmail.com', 'mail');
-                      },
-                      child: Text(
-                        "Contact me",
-                        style: TextStyle(
-                            color: Colors.white),
-                      ),
-                    ),
+                    EmailButton(),
                     SizedBox(
                       width: 30,
                     ),
-                    MaterialButton(
-                        color: Colors.indigoAccent,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(15.0)
-                            )
-                        ),
-                        onPressed: () {
-                          html.window.open('https://github.com/ZoltePudeleczko?tab=repositories', 'portfolio');
-                        },
-                        child: Text(
-                          "Portfolio",
-                          style: TextStyle(
-                              color: Colors.white),
-                        )
+                    PortfolioButton(
+                      parentScrollScreen: parentScrollScreen,
                     ),
                   ]
               ),
@@ -177,6 +134,53 @@ class ZborowskiText extends StatelessWidget {
         ),
       ]
       ),
+    );
+  }
+}
+
+class EmailButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      color: Colors.blue,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+              Radius.circular(15.0)
+          )
+      ),
+      onPressed: () {
+        html.window.open('mailto:szzborowski@gmail.com', 'mail');
+      },
+      child: Text(
+        "Contact me",
+        style: TextStyle(
+            color: Colors.white),
+      ),
+    );
+  }
+}
+
+class PortfolioButton extends StatelessWidget {
+  final Function() parentScrollScreen;
+  PortfolioButton({Key key, @required this.parentScrollScreen}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+        color: Colors.indigoAccent,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+                Radius.circular(15.0)
+            )
+        ),
+        onPressed: () {
+          parentScrollScreen();
+        },
+        child: Text(
+          "Portfolio",
+          style: TextStyle(
+              color: Colors.white),
+        )
     );
   }
 }

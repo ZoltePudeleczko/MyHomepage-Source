@@ -40,6 +40,17 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 
+  void scrollToPortfolioFast() {
+    SchedulerBinding.instance.addPostFrameCallback((_) =>
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: Duration(
+            milliseconds: 100,
+          ),
+          curve: Curves.linear,
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -58,7 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     controller: _scrollController,
                     child: Column(
                       children: <Widget>[
-                        Navbar(),
+                        Navbar(
+                          parentScrollScreen: scrollToPortfolioFast
+                        ),
                         Mainpage(),
                         Portfolio(
                             parentScrollScreen: scrollToPortfolio

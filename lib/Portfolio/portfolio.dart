@@ -88,7 +88,6 @@ class ScrollPageButton extends StatelessWidget {
   final Function() parentScrollScreen;
   ScrollPageButton({Key key, @required this.parentScrollScreen}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
