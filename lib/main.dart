@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                          colors: [Colors.lightBlueAccent, Colors.lightBlue]
+                          colors: [Colors.white60, Colors.white70]
                       )
                   ),
                   child: SingleChildScrollView(

@@ -29,12 +29,12 @@ class DesktopMainpage extends StatelessWidget {
         width: 1200,
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.indigoAccent,
+            color: Colors.blue,
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 6,
+                spreadRadius: 4,
+                blurRadius: 4,
                 offset: Offset(20, 20),
               ),
             ],

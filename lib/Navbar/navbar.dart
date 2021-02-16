@@ -108,7 +108,7 @@ class ZborowskiText extends StatelessWidget {
               "Szymon Samuel ",
               style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 30
               )
           ),
@@ -126,7 +126,7 @@ class ZborowskiText extends StatelessWidget {
             textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontFamily: "Lato",
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 30
             ),
             textAlign: TextAlign.start,
@@ -167,7 +167,7 @@ class PortfolioButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-        color: Colors.indigoAccent,
+        color: Colors.blue,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
                 Radius.circular(15.0)

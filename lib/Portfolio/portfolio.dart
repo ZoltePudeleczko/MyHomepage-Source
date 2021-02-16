@@ -52,12 +52,18 @@ class DesktopPortfolio extends StatelessWidget {
     return ClipPath(
       clipper: WaveClipperTwo(reverse: true),
       child: Container(
-        color: Colors.white,
+        color: Colors.black,
         height: 800,
         alignment: Alignment.center,
         child: Center(
             child: Text(
-                "W.I.P."
+              "W.I.P.",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Lato",
+                  color: Colors.white,
+                  fontSize: 30
+              ),
             )
         ),
       ),
@@ -71,12 +77,17 @@ class MobilePortfolio extends StatelessWidget {
     return ClipPath(
       clipper: WaveClipperTwo(reverse: true),
       child: Container(
-        color: Colors.white,
+        color: Colors.black,
         height: 800,
         alignment: Alignment.center,
         child: Center(
             child: Text(
-                "W.I.P."
+              "W.I.P.",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Lato",
+                  color: Colors.white,
+              ),
             )
         ),
       ),
